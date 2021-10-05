@@ -1,0 +1,64 @@
+<div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-4">
+
+                <div class="col-sm-6">
+                    <h1>Certificate Request List</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Certificate Request List</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+                <!-- <div class="col-sm-3"></div> -->
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <ngx-datatable class="table table-bordered text-center" [rows]="rows" columnMode="force"
+                                    [headerHeight]="50" [footerHeight]="0" [rowHeight]="50" [scrollbarV]="false"
+                                    [scrollbarH]="true" [reorderable]="true">
+                                    <ngx-datatable-column name="Email" prop="email"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Common Name" prop="common_name"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Country" prop="country"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Request Date" prop="request_date" [width]="300">
+                                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                            <span>
+                                                <h3>
+                                                    {{commonService.convertDate(value)|date:'mediumDate'}}
+                                                </h3>
+                                            </span>
+                                        </ng-template>
+
+
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column class="mb-2" name="Command" [width]="300">
+                                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                            <span>
+                                                <button class="btn btn-primary btn-sm" (click)='onSelectBlue(row)'>
+                                                    Detail
+                                                </button>
+                                            </span>
+                                        </ng-template>
+
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

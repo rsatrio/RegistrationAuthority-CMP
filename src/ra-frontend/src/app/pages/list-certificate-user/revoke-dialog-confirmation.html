@@ -1,0 +1,17 @@
+<div class="text text-danger">
+    <h1 mat-dialog-title >Confirmation</h1>
+    </div>
+    <div mat-dialog-content>
+      <p>Confirm to revoke certificate?</p>
+    </div>
+    
+    <div mat-dialog-actions>
+      <div class="row">
+        <div class="col-sm-8">
+          <button mat-button (click)="onNoClick()" class="btn btn-danger">Cancel</button>
+        </div>
+        <div class="col-sm-4">
+          <button mat-button (click)="onYesClick()" class="btn btn-success">Yes</button>
+        </div>
+      </div>
+    </div>

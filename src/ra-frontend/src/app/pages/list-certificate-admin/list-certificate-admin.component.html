@@ -1,0 +1,64 @@
+<div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-4">
+
+                <div class="col-sm-6">
+                    <h1>All User Certificate List</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">All User Certificate List</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+                <!-- <div class="col-sm-3"></div> -->
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <ngx-datatable class="table table-bordered text-center" [rows]="rows" columnMode="force"
+                                    [headerHeight]="50" [footerHeight]="0" rowHeight="auto" [scrollbarV]="false"
+                                    [scrollbarH]="true" [reorderable]="true" [loadingIndicator]="true">
+                                    <ngx-datatable-column name="Username" prop="email"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Serial Number" prop="serial_number">
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="Subject DN" prop="subject_dn"></ngx-datatable-column>
+                                    <ngx-datatable-column name="Request Date" prop="request_date">
+                                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                            <span>
+                                                <h3>
+                                                    {{commonService.convertDate(value)|date:'mediumDate'}}
+                                                </h3>
+                                            </span>
+                                        </ng-template>
+
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="Status" prop="status">
+                                        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                            <span>
+                                                <h3 [ngClass]="{'text-success': value === 'Active', 
+                                                'text-danger' : value === 'Revoked' }">
+                                                    {{value}}
+                                                </h3>
+                                            </span>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

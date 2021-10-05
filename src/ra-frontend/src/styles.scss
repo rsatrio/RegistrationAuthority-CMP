@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '~bootstrap/scss/bootstrap';
+
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
+
+@import '~admin-lte/plugins/fontawesome-free/css/all.min.css';
+@import '~admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
+@import '~admin-lte/dist/css/adminlte.min.css';
+
+@import '~ngx-toastr/toastr';
+
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.datatable-header {
+    height: unset !important;
+    
+    // background-color: #000000 !important;
+    
+    font-weight: bold !important;
+    .datatable-header-cell {
+        // border: 1px solid black !important;
+      vertical-align: bottom;
+      padding: 0.75rem;
+    //   border: 1px solid black !important;
+    //   border-bottom: 1px solid black !important;      
+      .datatable-header-cell-label {
+        line-height: 24px;
+      }
+    }
+}
+
+.datatable-body {
+    border: 1px  black !important;
+    .datatable-body-row {
+        border: 1px black !important;
+      vertical-align: top;
+    //   border-top: 1px solid #d1d4d7;
+      &.datatable-row-even {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      &.active {
+        background-color: #1483ff;
+        color: #fff;
+      }
+      .datatable-body-cell {
+        padding: 0.75rem;
+        border-right: 1px solid #f2f2f2 !important;
+        border-left: 1px solid #f2f2f2 !important;
+        text-align: center;
+        vertical-align: top;
+      }
+    }
+}

@@ -1,0 +1,78 @@
+urlCmp: http://127.0.0.1/ejbca/publicweb/cmp/CMP1
+dnRoot: CN=RizCA
+keyStorePath: "/app/server-example.p12" 
+keyPass: password
+keyAlias: key1
+jwtIssuer: www.test.com
+jwtExpirationMinutes: 60
+
+server:
+  adminMinThreads: 1
+  adminMaxThreads: 64
+  adminContextPath: /
+  applicationContextPath: /
+  applicationConnectors:
+    - type: http
+      port: 9080
+   
+  adminConnectors:
+    - type: http
+      port: 9081
+  requestLog:
+    appenders:
+      - type: console
+      - type: file
+        currentLogFilename: request.log
+        archivedLogFilenamePattern: request-%d.log.gz
+        archivedFileCount: 30
+
+database:
+  driverClass: org.h2.Driver  
+  url: jdbc:h2:mem:radb
+  
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 10s
+
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the timeout before a connection validation queries fail
+  validationQueryTimeout: 3s
+
+  # the minimum number of connections to keep open
+  minSize: 8
+
+  # the maximum number of connections to keep open
+  maxSize: 32
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+  # the amount of time to sleep between runs of the idle connection validation, abandoned cleaner and idle pool resizing
+  evictionInterval: 10s
+
+  # the minimum amount of time an connection must sit idle in the pool before it is eligible for eviction
+  minIdleTime: 1 minute
+  
+
+# Swagger-specific options.
+swagger:
+
+  resourcePackage: com.rizky.ra.cmp.resources
+  title: RA-CMP API
+  schemes: [http,https]
+  version: 1.0
+  description: RA-CMP API
+  contact: Rizky Satrio
+  contactEmail: 
+  contactUrl: 
+  license: Apache 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0       
+  
+logging:
+  level: INFO
+  appenders:       
+        - type: console
+  loggers:
+    com.rizky: DEBUG

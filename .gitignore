@@ -1,0 +1,54 @@
+# Eclipse
+
+.project
+
+.classpath
+
+.settings/
+
+#Manual Added
+*.gz
+
+
+
+# IntelliJ
+
+*.iml
+
+*.ipr
+
+*.iws
+
+.idea
+
+.settings
+config2.yml
+
+
+
+# Maven
+
+target/
+
+
+
+#Gradle
+
+.gradle
+
+
+
+# TestNG
+
+test-output/
+
+
+
+
+*.log
+
+#linux te files
+*~
+
+src/ra-frontend/node_modules
+src/main/resources/ra-cmp

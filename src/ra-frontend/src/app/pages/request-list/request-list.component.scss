@@ -1,0 +1,20 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+
+// colors for header elements
+.datatable-header {
+    height: unset !important;
+    background-color: #000000 !important;
+    font-weight: bold !important;
+    .datatable-header-cell {
+      vertical-align: bottom;
+      padding: 0.75rem;
+      border: 1px solid black !important;
+      border-bottom: 1px solid black !important;      
+      .datatable-header-cell-label {
+        line-height: 24px;
+      }
+    }
+}
