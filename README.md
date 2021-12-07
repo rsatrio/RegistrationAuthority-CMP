@@ -2,6 +2,8 @@
 
 A simple registration authority(RA) website for user to signup and do certificate request. Administrator then can accept or reject the request. Tested working with CMP Interface of EJBCA Community. Setup the EJBCA to identify the website(CMP Client) as RA.
 
+![](https://github.com/rsatrio/RegistrationAuthority-CMP/blob/main/RA-CMP.gif)
+
 ## Features
 - REST Endpoint
 - Authentication and Role Based Authorization with JWT
