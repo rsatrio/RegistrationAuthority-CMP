@@ -5,6 +5,7 @@ keyPass: password
 keyAlias: key1
 jwtIssuer: www.test.com
 jwtExpirationMinutes: 60
+sharedSecretRa: password
 
 server:
   adminMinThreads: 1

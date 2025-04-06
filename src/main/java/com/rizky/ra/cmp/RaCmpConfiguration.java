@@ -14,6 +14,7 @@ public class RaCmpConfiguration extends Configuration {
     private String keyStorePath,keyPass,keyAlias;
     
     private String jwtIssuer;
+    private String sharedSecretRa;
     private int jwtExpirationMinutes=60;
 
 
@@ -32,6 +33,7 @@ public class RaCmpConfiguration extends Configuration {
     }
     
 
+    
 
     @JsonProperty("swagger")
     public SwaggerBundleConfiguration getSwagger() {
@@ -103,6 +105,15 @@ public class RaCmpConfiguration extends Configuration {
     public void setJwtExpirationMinutes(int jwtExpirationMinutes) {
         this.jwtExpirationMinutes = jwtExpirationMinutes;
     }
+
+    public String getSharedSecretRa() {
+        return sharedSecretRa;
+    }
+
+    public void setSharedSecretRa(String sharedSecretRa) {
+        this.sharedSecretRa = sharedSecretRa;
+    }
+    
     
    
     

@@ -1,10 +1,11 @@
-urlCmp: http://127.0.0.1/ejbca/publicweb/cmp/CMP1
+urlCmp: http://custom-ejbca:8080/ejbca/publicweb/cmp/CMP1
 dnRoot: CN=RizCA
-keyStorePath: server-example.p12 
+keyStorePath: /app/server-example.p12 
 keyPass: password
 keyAlias: key1
 jwtIssuer: www.test.com
 jwtExpirationMinutes: 60
+sharedSecretRa: password
 
 server:
   adminMinThreads: 1

@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  custom-ejbca:
+    build:
+      context: .
+      dockerfile: Dockerfiles/ejbca.Dockerfile
+    image: rizky/custom-ejbca:1.0.0
+    container_name: custom-ejbca
+    hostname: custom-ejbca
+    restart: always
+    volumes:
+      - ./Dockerfiles/start.sh:/opt/keyfactor/bin/start.sh 
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+
+  ra-cmp:
+    build:
+      context: .
+      dockerfile: Dockerfiles/ra-cmp.Dockerfile
+    image: rizky/ra-cmp:1.0.0
+    container_name: ra-cmp
+    hostname: ra-cmp
+    restart: always
+    volumes:
+      - ./Dockerfiles/config.yml:/app/config.yml
+      - ./Dockerfiles/server-example.p12:/app/server-example.p12  
+    ports:
+      - '9080:9080'

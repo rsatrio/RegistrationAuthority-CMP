@@ -46,6 +46,8 @@ import org.bouncycastle.cert.crmf.PKMACBuilder;
 import org.bouncycastle.cert.crmf.jcajce.JcePKMACValuesCalculator;
 import org.bouncycastle.operator.MacCalculator;
 
+import com.rizky.ra.cmp.RaCmpConfiguration;
+import com.rizky.ra.cmp.RaCmpSingleton;
 import com.rizky.ra.cmp.api.EnrollCertReq;
 
 import kong.unirest.HttpResponse;
@@ -55,6 +57,8 @@ public class CMPTools {
 
     public  static byte[] sendCMPEnroll(EnrollCertReq req,KeyPair keyPair,
             String urlCmp,String dnRoot) throws Exception {
+        
+        RaCmpConfiguration config=RaCmpSingleton.getSingleton().getConfig();
 
         CertificateRequestMessageBuilder msgbuilder = new CertificateRequestMessageBuilder(BigInteger.valueOf(1000));
         X509NameEntryConverter dnconverter = new X509DefaultEntryConverter();
@@ -93,7 +97,7 @@ public class CMPTools {
         final AlgorithmIdentifier macAlg = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA1); // HMAC/SHA1
         jcePkmacCalc.setup(digAlg, macAlg);
         PKMACBuilder macbuilder = new PKMACBuilder(jcePkmacCalc);
-        MacCalculator macCalculator = macbuilder.build("password".toCharArray());
+        MacCalculator macCalculator = macbuilder.build(config.getSharedSecretRa().toCharArray());
         ProtectedPKIMessage message = pbuilder.build(macCalculator);
 
         HttpResponse<byte[]> resp=Unirest.post(urlCmp)
@@ -142,6 +146,8 @@ public class CMPTools {
     public static int cmpRevoke(String dnIssuer,
             String dnUser, 
             String serialNumber, String urlCmp) throws Exception {
+        
+        RaCmpConfiguration config=RaCmpSingleton.getSingleton().getConfig();
         X500Name issuerDN = new X500Name(dnIssuer);
         X500Name subjectDN =new X500Name(dnUser);
         BigInteger serNo=new BigInteger(serialNumber,16);
@@ -194,7 +200,7 @@ public class CMPTools {
         final AlgorithmIdentifier macAlg = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA1); // HMAC/SHA1
         jcePkmacCalc.setup(digAlg, macAlg);
         PKMACBuilder macbuilder = new PKMACBuilder(jcePkmacCalc);
-        MacCalculator macCalculator = macbuilder.build("password".toCharArray());
+        MacCalculator macCalculator = macbuilder.build(config.getSharedSecretRa().toCharArray());
         ProtectedPKIMessage message = pbuilder.build(macCalculator);
 
         HttpResponse<byte[]> resp=Unirest.post(urlCmp)

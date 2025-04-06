@@ -190,7 +190,7 @@
   <properties>
     <dropwizard.version>2.0.13</dropwizard.version>
     <mainClass>com.rizky.ra.cmp.RaCmpApplication</mainClass>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 </project>

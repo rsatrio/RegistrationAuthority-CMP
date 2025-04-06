@@ -39,7 +39,6 @@
     "@swimlane/ngx-datatable": "^19.0.0",
     "core-js": "3.8.0",
     "file-saver": "^2.0.5",
-    "gatekeeper-client-sdk": "0.2.1",
     "luxon": "^1.27.0",
     "ng-block-ui": "^3.0.2",
     "ngx-filesaver": "^12.0.0",

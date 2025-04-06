@@ -14,7 +14,7 @@ A simple registration authority(RA) website for user to signup and do certificat
 - Enroll Certificate and Revoke Certificate using CMP Protocol
 - Administrator to review certificate registration and approve or reject it.
 
-## Build
+## Build Frontend
 
 - Install nodejs 
 - Run this to install required NPM and build angular AdminLTE:
@@ -23,21 +23,18 @@ cd src/ra-frontend
 npm install
 ng build --base-href=/ra/
 ```
-- Use mvn package to build the module into jar file
-- Run docker as below
 
 
-
-## Docker
-- Build the package as above in [Build]
-- Go to the root directory of the project and run:
+## Quick Deployment 
+- Install docker and docker compose
+- Clone this repository
+- Run docker compose:
 ```shell
-docker build -t ra-cmp .
+docker compose -f docker-compose.yml up
 ```
-- And then run the docker image:
-```shell
-docker run -p 9080:9080 ra-cmp
-```
+- See "Application Usage" section in this README
+
+## Application usage
 - Go to the browser and try to open the RA-CMP app in http://localhost:9080/ra/
 - Register as regular user, or use admin account (admin1@test.com / password)
 - In order to successfully issued certificate, we must connect to CA Provider that provide CMP interface. I used EJBCA, and set it up to use CMP Client as RA. 

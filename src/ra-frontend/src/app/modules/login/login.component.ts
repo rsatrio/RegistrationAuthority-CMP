@@ -55,17 +55,17 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
     }
 
-    async loginByGoogle() {
-        this.isGoogleLoading = true;
-        await this.appService.loginByGoogle();
-        this.isGoogleLoading = false;
-    }
+    // async loginByGoogle() {
+    //     this.isGoogleLoading = true;
+    //     await this.appService.loginByGoogle();
+    //     this.isGoogleLoading = false;
+    // }
 
-    async loginByFacebook() {
-        this.isFacebookLoading = true;
-        await this.appService.loginByFacebook();
-        this.isFacebookLoading = false;
-    }
+    // async loginByFacebook() {
+    //     this.isFacebookLoading = true;
+    //     await this.appService.loginByFacebook();
+    //     this.isFacebookLoading = false;
+    // }
 
     ngOnDestroy() {
         this.renderer.removeClass(
